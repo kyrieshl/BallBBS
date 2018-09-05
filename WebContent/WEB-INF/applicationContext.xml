@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context"  	 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+    http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    >
+    <!-- <context:annotation-config/>
+    <context:component-scan base-package="dao"/> -->
+    
+     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/dbball1?characterEncoding=utf-8"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="123456"></property>
+		<property name="maxPoolSize" value="100"></property>
+		<property name="minPoolSize" value="10"></property>
+		<property name="initialPoolSize" value="20"></property>
+		<property name="maxIdleTime" value="20"></property>		
+	</bean> 
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+				<!-- 列出所有的映射文件 -->
+				<value>entity/Manager.hbm.xml</value>
+				<value>entity/Post.hbm.xml</value>
+				<value>entity/User.hbm.xml</value>
+				<value>entity/PostReply.hbm.xml</value>
+				<value>entity/Media.hbm.xml</value>
+				<value>entity/HotSearch.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+				hibernate.hbm2ddl.auto=update
+				#开启二级缓存
+				hibernate.cache.use_second_level_cache=true
+				#设置二级缓存的提供者
+				hibernate.cache.provider_class = org.hibernate.cache.EhCacheProvider
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="forumDao"  p:sessionFactory-ref="sessionFactory" class = "dao.ForumDao"></bean>
+	<bean id="mediaDao"  p:sessionFactory-ref="sessionFactory" class = "dao.MediaDao"></bean>
+	
+	
+</beans>

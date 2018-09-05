@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-29 13:14:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.PostReply" table="postReply">
+        <id name="replyId" type="java.lang.Integer">
+            <column name="replyId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="post" class="entity.Post" lazy="false">
+            <column name="postId" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="user" class="entity.User" lazy="false">
+            <column name="userId" not-null="true"/>
+        </many-to-one>
+        <property name="floor" type="java.lang.Integer">
+            <column name="floor" />
+        </property>
+        <property name="parentFloor" type="java.lang.Integer">
+            <column name="parentFloor" />
+        </property>
+        <property name="replyContent" type="java.lang.String">
+            <column name="replyContent" />
+        </property>
+        <property name="replyTime" type="java.sql.Timestamp">
+            <column name="replyTime" />
+        </property>
+    </class>
+</hibernate-mapping>

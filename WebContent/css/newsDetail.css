@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+.voice-main{
+	width:65%;
+	float:left;
+	padding-left:100px;
+}
+.artical-content {
+    width: 100%;
+    padding-bottom: 20px;
+    color: #1a2939;
+    line-height: 24px;
+    font-size: 18px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.artical-fn-tip-height{
+	display:none;
+}
+.further-reading-page{
+	display:none;
+}
+.fn-fl a{
+	color:gray;
+	text-decoration:none;
+}
+.whole-wrapper{
+	float:left;
+	width:100%;
+	clear:both;
+}
+.hours24-top{
+	float:left;
+	padding:0;
+	magin:0;
+}
+.list li{
+	padding:5px;
+}
+.artical-importantPic img { 
+	max-width: 100%; 
+	height: auto; 
+}

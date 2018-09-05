@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.whole-wrapper{
+	float:left;
+	width:100%;
+	clear:both;
+}
+.news-list{
+	width:65%;
+	float:left;
+	padding-left:100px;
+	word-break:keep-all;        
+	white-space:nowrap; 
+}
+.hours24-top{
+	float:left;
+	padding:0;
+	magin:0;
+}
+.list li{
+	padding:5px;
+}
+

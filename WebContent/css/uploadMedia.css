@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+body{
+	background-image: url("../image/bg.jpg");
+}  
+.top{
+	font-size: 14px;
+	width:1000px;
+	magin:0 auto;
+}
+.uploadTable{
+	font-size: 14px;
+	magin:0 auto;
+}
+.wrapper{
+	padding-top:30px;
+	width:1000px;
+	magin:0 auto;
+}
+#currentPoint{
+	font-size: 14px;
+	width: 1000px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: left;
+	padding-left: 50px;
+}
+a.green:LINK,a.green:VISITED {
+	color:green;
+	text-decoration: none;
+}
+a.green:HOVER,a.green:ACTIVE {
+	color:olive;
+	text-decoration: underline;
+}
